@@ -1,6 +1,7 @@
 import React from 'react'
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight, MessageCircle,ShoppingBag } from "lucide-react";
 import { motion } from "motion/react";
+// import { ArrowUpRight, ShoppingBag } from "lucide-react";
 const products = [
   {
     id: 1,
@@ -44,9 +45,9 @@ const products = [
   },
 ];
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({addToCart,cartCount}) => {
    const requestProduct = (product) => {
-    const phoneNumber = "2348012345678";
+    const phoneNumber = "2348084115102";
 
     const message = `Hello AGROVA, I would like to request ${product.name}. Please share the price and available quantities.`;
 
@@ -86,12 +87,14 @@ const FeaturedProducts = () => {
             Make a Bulk Enquiry
             <ArrowUpRight size={18} />
           </a>
+          <a href="#cart" className="inline-flex items-center gap-2 rounded-xl bg-[#E8EFE3] px-4 py-3 text-sm font-bold text-[#173F2A] hover:bg-[#D9E6D2]">
+            View Cart ({cartCount})
+            </a>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product, index) => (
-  <motion.article
-    key={product.id}
+  <motion.article key={product.id}
     initial={{ opacity: 0, y: 35 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.15 }}
